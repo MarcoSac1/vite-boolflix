@@ -11,8 +11,8 @@ export default {
         }
     },
     methods:{
-        getFilm(){
-            axios.get('https://api.themoviedb.org/3/search/movie?api_key=704bcbb605fa3bbfcf7f5616feaf17bb&query=+')
+        getFilm(filmName){
+            axios.get('https://api.themoviedb.org/3/search/movie?api_key=704bcbb605fa3bbfcf7f5616feaf17bb&query='+filmName)
             .then((response) => {
                 console.log(response.data.data);
                 this.film=response.data.data;
@@ -24,6 +24,10 @@ export default {
                 
             });
         },
+        searchFilm(searchedString){
+            console.log('franco');
+            console.log(searchedString);
+        }
     },
     created() {
         this.getFilm();
@@ -32,7 +36,7 @@ export default {
 </script>
 
 <template>
-    <AppSearch/>
+    <AppSearch @searched="searchFilm"/>
 <section>
     <h1>main section </h1>
 </section>
