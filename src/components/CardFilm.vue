@@ -23,13 +23,14 @@ export default {
         <h1>{{ film.original }} </h1>
         <h2> {{ film.original_title }} </h2>
         <p>{{ film.vote_average }} </p> 
-
+        <img  v-bind:src="`https://image.tmdb.org/t/p/w342/${ series.backdrop_path }`"  alt="img">
         <span class="lang-icon" :class="`lang-icon-${ film.original_language }`"></span>
     </article>
     <article v-for="(series, index) in series" :key="index" :series="series">
         <h1> {{ series.original_name }} </h1>
         <h2> {{ series.name }}</h2>
         <p> {{ series.vote_average }}</p> 
+        <img  v-bind:src="`https://image.tmdb.org/t/p/w342/${ series.backdrop_path }`"  alt="img">
 
         <span class="lang-icon" :class="`lang-icon-${ series.original_language}`"></span>
     </article>
