@@ -1,4 +1,7 @@
 <script>
+
+import fontAwesomeIcon from '../../node_modules/font-awesome'
+
 export default {
     data() {
         return{
@@ -13,6 +16,16 @@ export default {
         series:{
             type:Array,
             required:true
+        }
+    },
+    methods: {
+        votefix: function(newValue){
+            const intVote = math.floor(newValue / 2);
+            let vote ="";
+            for (let index = 0; index < intVote; index++) {
+                vote += `<font-awesome-icon :icon="['fas', 'star']/>`
+            }
+            return vote;
         }
     }
 }
@@ -29,7 +42,7 @@ export default {
     <article v-for="(series, index) in series" :key="index" :series="series">
         <h1> {{ series.original_name }} </h1>
         <h2> {{ series.name }}</h2>
-        <p> {{ series.vote_average }}</p> 
+        <p> {{ votefix(series.vote_average) }}</p> 
         <img  v-bind:src="`https://image.tmdb.org/t/p/w342/${ series.backdrop_path }`"  alt="img">
         <span class="lang-icon" :class="`lang-icon-${ series.original_language}`"></span>
     </article>

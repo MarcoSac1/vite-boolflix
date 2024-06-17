@@ -1,4 +1,5 @@
 <script>
+import fontAwesomeIcon from '../../node_modules/font-awesome';  
 import AppSearch from "./AppSearch.vue";
 import axios from "axios";
 import CardFilm from "./CardFilm.vue";
