@@ -20,11 +20,18 @@ export default {
 
 <template>
     <article v-for="(film, index) in film" :key="index" :film="film">
-        <h1>{{ film.original }} {{ series.original_name }} </h1>
-        <h2> {{ film.original_title }} {{ series.name }}</h2>
-        <p>{{ film.vote_average }}  {{ series.vote_average }}</p> 
+        <h1>{{ film.original }} </h1>
+        <h2> {{ film.original_title }} </h2>
+        <p>{{ film.vote_average }} </p> 
 
-        <span class="lang-icon" :class="`lang-icon-${ film.original_language } { series.original_language}`"></span>
+        <span class="lang-icon" :class="`lang-icon-${ film.original_language }`"></span>
+    </article>
+    <article v-for="(series, index) in series" :key="index" :series="series">
+        <h1> {{ series.original_name }} </h1>
+        <h2> {{ series.name }}</h2>
+        <p> {{ series.vote_average }}</p> 
+
+        <span class="lang-icon" :class="`lang-icon-${ series.original_language}`"></span>
     </article>
 </template>
 

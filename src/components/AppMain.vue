@@ -64,7 +64,7 @@ export default {
 
 <template>
     <AppSearch @searched="searchFilm"/>
-    <CardFilm :film="film" :series="series" />
+    <CardFilm :film="film"/>
     <CardFilm :series="series" />
 <section>
     <h1>main section </h1>
