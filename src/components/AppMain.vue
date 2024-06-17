@@ -9,7 +9,8 @@ export default {
     },
     data() {
         return{
-            film: []
+            film: [],
+            series:[]
         }
     },
 
@@ -20,6 +21,27 @@ export default {
             .then((response) => {
                 console.log(response);
                 this.film=response.data.results;
+            })
+            .catch(function(error){
+                console.log(error);
+            })
+            .finally(function () {
+                
+            });
+        },
+        searchFilm(cercato){
+            this.getFilm(cercato);
+            this.getSeries(cercato);
+            console.log('franco');
+            console.log(cercato);
+        },
+        getSeries(filmName){
+            console.log('https:api.themoviedb.org/3/search/tv?api_key=704bcbb605fa3bbfcf7f5616feaf17bb&language=it_IT&query='+filmName
+            );
+            axios.get('https:api.themoviedb.org/3/search/tv?api_key=704bcbb605fa3bbfcf7f5616feaf17bb&language=it_IT&query='+filmName)
+            .then((response) => {
+                console.log(response);
+                this.series=response;
             })
             .catch(function(error){
                 console.log(error);

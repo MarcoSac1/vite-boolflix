@@ -9,21 +9,23 @@ export default {
         film:{
             type:Array,
             required:true
+        },
+        series:{
+            type:Array,
+            required:true
         }
-
     }
 }
 </script>
 
 <template>
     <article v-for="(film, index) in film" :key="index" :film="film">
-        <h1>{{ film.original }}</h1>
-        <h2> {{ film.original_title }}</h2>
-        <p>{{ film.vote_average }}</p> <span> {{ film.original_language }}</span>
-        <span class="lang-icon" :class="`lang-icon-${ film.original_language }`"></span>
+        <h1>{{ film.original }} {{ series.original_name }} </h1>
+        <h2> {{ film.original_title }} {{ series.name }}</h2>
+        <p>{{ film.vote_average }}  {{ series.vote_average }}</p> 
+
+        <span class="lang-icon" :class="`lang-icon-${ film.original_language } { series.original_language}`"></span>
     </article>
-
-
 </template>
 
 <style lang="scss" scoped>
