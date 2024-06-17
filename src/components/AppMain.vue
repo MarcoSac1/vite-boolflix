@@ -38,10 +38,10 @@ export default {
         getSeries(seriesName){
             console.log('&query='+seriesName
             );
-            axios.get('https:api.themoviedb.org/3/search/tv?api_key=704bcbb605fa3bbfcf7f5616feaf17bb&language=it_IT&query='+seriesName)
+            axios.get('https://api.themoviedb.org/3/search/tv?api_key=704bcbb605fa3bbfcf7f5616feaf17bb&language=it_IT&query='+seriesName)
             .then((response) => {
                 console.log(response);
-                this.series=response.data;
+                this.series=response.data.results;
             })
             .catch(function(error){
                 console.log(error);
@@ -64,7 +64,7 @@ export default {
 
 <template>
     <AppSearch @searched="searchFilm"/>
-    <CardFilm :film="film"/>
+    <CardFilm :film="film" :series="series" />
     <CardFilm :series="series" />
 <section>
     <h1>main section </h1>
