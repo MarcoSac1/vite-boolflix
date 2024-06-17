@@ -16,7 +16,6 @@ export default {
 
     methods:{
         getFilm(filmName){
-            console.log('https://api.themoviedb.org/3/search/movie?api_key=704bcbb605fa3bbfcf7f5616feaf17bb&query='+filmName);
             axios.get('https://api.themoviedb.org/3/search/movie?api_key=704bcbb605fa3bbfcf7f5616feaf17bb&query='+filmName)
             .then((response) => {
                 console.log(response);
@@ -32,7 +31,6 @@ export default {
         searchFilm(cercato){
             this.getFilm(cercato);
             this.getSeries(cercato);
-            console.log('franco');
             console.log(cercato);
         },
         getSeries(seriesName){
@@ -50,11 +48,6 @@ export default {
                 
             });
         },
-        searchFilm(cercato){
-            this.getFilm(cercato);
-            this.getSeries(cercato);
-            console.log(cercato);
-        }
     },
     created() {
         
