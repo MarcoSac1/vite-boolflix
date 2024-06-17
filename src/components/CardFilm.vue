@@ -31,7 +31,6 @@ export default {
         <h2> {{ series.name }}</h2>
         <p> {{ series.vote_average }}</p> 
         <img  v-bind:src="`https://image.tmdb.org/t/p/w342/${ series.backdrop_path }`"  alt="img">
-
         <span class="lang-icon" :class="`lang-icon-${ series.original_language}`"></span>
     </article>
 </template>
