@@ -2,10 +2,14 @@
 import AppSearch from "./AppSearch.vue";
 import axios from "axios";
 import CardFilm from "./CardFilm.vue";
+import AppHeader from "./AppHeader.vue";
+
+
 export default {
     components: {
         AppSearch,
-        CardFilm
+        CardFilm,
+        AppHeader
     },
     data() {
         return{
@@ -56,7 +60,8 @@ export default {
 </script>
 
 <template >
-    <div class="bg-dark text-light  ">
+    <div class="bg-dark text-light  h-100">
+        <AppHeader/>
         <AppSearch @searched="searchFilm"/>
         <CardFilm :film="film" :series="series" />
     </div>

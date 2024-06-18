@@ -111,5 +111,4 @@ export default {
         color: gray;
         border: salmon solid;
     }
-    
 </style>
