@@ -21,7 +21,7 @@ export default {
     methods: {
         voteFix() {
             let intVote = (Math.ceil(this.film.vote_average )/ 2, 5);
-            console.log(intVote);
+            console.log(this.film);
             for (let index = 0; index < intVote; index++) {
                 this.vote.push(index);
             };
@@ -32,48 +32,67 @@ export default {
             console.log(this.emptyStar);
             
         }
+        
     },
     created(){
         this.voteFix();
+        
     },
 }
 </script>
 
 <template>
-    <article v-for="(film, index) in film" :key="index" :film="film">
-        <h1>{{ film.original }} </h1>
-        <h2> {{ film.original_title }} </h2>
-        <ul>
-            <li v-for="(vote, index) in vote" :key="index"  class="yellow">
-                <font-awesome-icon icon="fa-solid fa-star" />
-            </li>
-            <li v-for="(emptyStar, index) in emptyStar" :key="index" class="gray">
-                <font-awesome-icon icon="fa-solid fa-star" />
-            </li>
-        </ul>  
-        <img  v-bind:src="`https://image.tmdb.org/t/p/w342/${ film.backdrop_path }`"  alt="img">
-        <span class="lang-icon" :class="`lang-icon-${ film.original_language }`"></span>
-    </article>
-    <article v-for="(series, index) in series" :key="index" :series="series">
-        <h1> {{ series.original_name }} </h1>
-        <h2> {{ series.name }}</h2>
-        <ul>
-            <li v-for="(vote, index) in vote" :key="index"  class="yellow">
-                <font-awesome-icon icon="fa-solid fa-star" />
-            </li>
-            <li v-for="(emptyStar, index) in emptyStar" :key="index"  class="gray">
-                <font-awesome-icon icon="fa-solid fa-star" />
-            </li>
-        </ul>    
-        <img  v-bind:src="`https://image.tmdb.org/t/p/w342/${ series.backdrop_path }`"  alt="img">
-        <span class="lang-icon" :class="`lang-icon-${ series.original_language}`"></span>
-    </article>
+    <div class="container-fluid">
+        <section class="row">
+            <div class="card m-2 p-0 bg-secondary text-light" style="width: 18rem;" v-for="(film, index) in film" :key="index" :film="film">
+                <img class="col-12" v-bind:src="`https://image.tmdb.org/t/p/w342/${ film.backdrop_path }`"  alt="img">
+                <div class="card-body">
+                    <h2>{{ film.original }} </h2>
+                    <h4  class=""> {{ film.original_title }} </h4>
+                    <p class="">{{ film.vote_average }}</p>
+                    <ul>
+                        <li v-for="(vote, index) in vote" :key="index"  class="yellow">
+                            <font-awesome-icon icon="fa-solid fa-star" />
+                        </li>
+                        <li v-for="(emptyStar, index) in emptyStar" :key="index" class="gray">
+                            <font-awesome-icon icon="fa-solid fa-star" />
+                        </li>
+                    </ul> 
+                    <span class="lang-icon" :class="`lang-icon-${ film.original_language }`"></span> 
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="container-fluid">
+        <section class="row">
+            <div class="card m-2 p-0 bg-secondary text-light" style="width: 18rem;" v-for="(series, index) in series" :key="index" :series="series">
+                <img class="col-12" v-bind:src="`https://image.tmdb.org/t/p/w342/${ series.backdrop_path }`"  alt="img">
+                <div class="card-body ">
+                    <h2>{{ series.name }} </h2>
+                    <h4  class=""> {{ series.name }} </h4>
+                    <p >{{ film.vote_average }}</p>
+                    <ul>
+                        <li v-for="(vote, index) in vote" :key="index"  class="yellow">
+                            <font-awesome-icon icon="fa-solid fa-star" />
+                        </li>
+                        <li v-for="(emptyStar, index) in emptyStar" :key="index" class="gray">
+                            <font-awesome-icon icon="fa-solid fa-star" />
+                        </li>
+                    </ul> 
+                    <span class="lang-icon" :class="`lang-icon-${ series.original_language }`"></span> 
+                </div>
+            </div>
+        </section>
+    </div>
 </template>
 
 <style lang="scss" scoped>
     @use '../styles/flag-icon.scss' as *;
 
-    
+    img{
+        width: 100%;
+        padding: .2rem;
+    }
     .lang-icon {
         background-image: url(../../node_modules/@textabledev/langs-flags-list/lang-flags.png);
     }
