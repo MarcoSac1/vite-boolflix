@@ -72,13 +72,10 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.lang-icon {
-            background-image: url(../../node_modules/@textabledev/langs-flags-list/lang-flags.png);
-        }
-
-.lang-icon {
-    display: inline-block;
-    width: 25px;
-    height: 15px;
+    @use '../styles/flag-icon.scss' as *;
+    
+    .lang-icon {
+        background-image: url(../../node_modules/@textabledev/langs-flags-list/lang-flags.png);
     }
+
 </style>
