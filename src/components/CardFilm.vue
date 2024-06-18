@@ -37,7 +37,7 @@ export default {
 </script>
 
 <template>
-    <div id="app">
+    <div id="star">
     <!-- Add the style and icon you want using the String format -->
     <font-awesome-icon icon="fa-solid fa-star" />
     </div>
@@ -45,10 +45,10 @@ export default {
         <h1>{{ film.original }} </h1>
         <h2> {{ film.original_title }} </h2>
         <ul>
-            <li v-for="(vote, index) in vote" :key="index" id="app" class="yellow">
+            <li v-for="(vote, index) in vote" :key="index"  class="yellow">
                 <font-awesome-icon icon="fa-solid fa-star" />
             </li>
-            <li v-for="(emptyStar, index) in emptyStar" :key="index" id="app" class="gray">
+            <li v-for="(emptyStar, index) in emptyStar" :key="index" class="gray">
                 <font-awesome-icon icon="fa-solid fa-star" />
             </li>
         </ul>  
