@@ -55,13 +55,16 @@ export default {
 }
 </script>
 
-<template>
-    <AppSearch @searched="searchFilm"/>
-    <CardFilm :film="film" :series="series" />
-<section>
-    <h1>main section </h1>
-</section>
+<template >
+    <div class="bg-dark text-light  ">
+        <AppSearch @searched="searchFilm"/>
+        <CardFilm :film="film" :series="series" />
+    </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" >
+@use'../node_modules/bootstrap/scss/bootstrap.scss';
+@use'../styles/partials/variables' as *;
+@use'../styles/partials/mixins' as *;
+@use'../styles/general.scss';
 </style>

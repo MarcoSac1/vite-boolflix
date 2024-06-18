@@ -19,28 +19,27 @@ export default {
         }
     },
     methods: {
-        votefix() {
-            let intVote = parseInt(Math.ceil(this.film.vote_average) / 2, 10);
+        voteFix() {
+            let intVote = (Math.ceil(this.film.vote_average )/ 2, 5);
+            console.log(intVote);
             for (let index = 0; index < intVote; index++) {
                 this.vote.push(index);
             };
+            console.log(this.vote);
             for (let index = intVote; index < 5; index++) {
                 this.emptyStar.push(index);
             };
+            console.log(this.emptyStar);
             
         }
     },
     created(){
-        this.votefix();
+        this.voteFix();
     },
 }
 </script>
 
 <template>
-    <div id="star">
-    <!-- Add the style and icon you want using the String format -->
-    <font-awesome-icon icon="fa-solid fa-star" />
-    </div>
     <article v-for="(film, index) in film" :key="index" :film="film">
         <h1>{{ film.original }} </h1>
         <h2> {{ film.original_title }} </h2>
@@ -59,10 +58,10 @@ export default {
         <h1> {{ series.original_name }} </h1>
         <h2> {{ series.name }}</h2>
         <ul>
-            <li v-for="(vote, index) in vote" :key="index" id="app" class="yellow">
+            <li v-for="(vote, index) in vote" :key="index"  class="yellow">
                 <font-awesome-icon icon="fa-solid fa-star" />
             </li>
-            <li v-for="(emptyStar, index) in emptyStar" :key="index" id="app" class="gray">
+            <li v-for="(emptyStar, index) in emptyStar" :key="index"  class="gray">
                 <font-awesome-icon icon="fa-solid fa-star" />
             </li>
         </ul>    
@@ -73,9 +72,23 @@ export default {
 
 <style lang="scss" scoped>
     @use '../styles/flag-icon.scss' as *;
+
     
     .lang-icon {
         background-image: url(../../node_modules/@textabledev/langs-flags-list/lang-flags.png);
     }
-
+    ul{
+        list-style-type: none;
+        display: flex;
+        padding-left: 0rem;
+        li{
+            margin: .2rem;
+        }
+    }
+    .yellow{
+        color: rgb(100, 206, 30);
+    }
+    .gray{
+        color: gray;
+    }
 </style>
