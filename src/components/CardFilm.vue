@@ -109,6 +109,5 @@ export default {
     }
     .gray{
         color: gray;
-        border: salmon solid;
     }
 </style>
